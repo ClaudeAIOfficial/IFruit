@@ -1,7 +1,164 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="theme-color" content="#000000"/><meta name="description" content="iFruit, a GTA-inspired concept smartphone collection. Experience the next connection."/>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="iFruit: an unofficial Grand Theft Auto-inspired phone concept. Planned concept reveal January 1, 2027.">
 <title>iFruit | The Next Connection</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-</head><body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body></html>
+<link rel="icon" href="/brand-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--panel:#121212;--muted:#a0a0a0;--line:rgba(255,255,255,.13);--yellow:#fcaf17}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#000;color:#fff;font:15px Inter,Helvetica,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,summary{font:inherit;cursor:pointer}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #fcaf17;outline-offset:4px}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3,.display{font-family:Oswald,Impact,'Arial Narrow',sans-serif;text-transform:uppercase}
+h1{font-size:clamp(76px,10vw,160px);line-height:.97;letter-spacing:-.042em;margin-bottom:22px}
+h2{font-size:clamp(52px,6vw,90px);line-height:1.04;letter-spacing:-.04em;margin-bottom:0}
+h3{font-size:30px;line-height:1.15}
+p{line-height:1.7}
+small,.muted{color:var(--muted)}
+.wrap{max-width:1270px;margin:auto;padding:0 30px}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(0,0,0,.91);backdrop-filter:blur(22px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1270px;margin:auto;padding:0 30px;min-height:74px;display:flex;align-items:center;gap:32px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.brand img{width:48px;height:48px;object-fit:contain}
+.brand-label{font-size:10px;color:#b8b8b8;letter-spacing:.13em;text-transform:uppercase;border-left:1px solid #555;padding-left:14px}
+.desktop-nav{display:flex;gap:30px;align-items:center;text-transform:uppercase;font-size:11px;letter-spacing:.12em;font-weight:800}
+.desktop-nav a:hover,.footer a:hover{color:var(--yellow)}
+.btn{border:0;border-radius:4px;background:var(--yellow);color:#000;padding:17px 25px;display:inline-flex;align-items:center;justify-content:center;gap:15px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;transition:background .2s,transform .2s;line-height:1}
+.btn:hover{background:#fff;transform:translateY(-2px)}
+.btn.secondary{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.45);color:#fff}
+.btn.secondary:hover{background:#ffffff24}
+.eyebrow{color:var(--yellow);text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:800}
+.hero{min-height:690px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 79% 40%,#8f5650 0%,transparent 37%),radial-gradient(ellipse at 65% 15%,#393146 0%,transparent 44%),linear-gradient(125deg,#08080d 5%,#18131d 55%,#3a2423)}
+.hero:after{content:'';pointer-events:none;position:absolute;inset:0;background:linear-gradient(0deg,#000 0%,transparent 24%),linear-gradient(90deg,rgba(0,0,0,.44),transparent 85%)}
+.hero-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px;min-height:690px;position:relative;z-index:1;padding-top:65px;padding-bottom:60px}
+.hero-copy{position:relative;z-index:5}
+.hero-copy p.description{max-width:440px;color:#dedce0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.device-scene{height:560px;position:relative;isolation:isolate}
+.device-glow{position:absolute;inset:15%;border-radius:50%;background:#ed9c7240;filter:blur(90px)}
+.phone{width:250px;height:500px;border:6px solid #737681;border-radius:42px;background:linear-gradient(135deg,#b9bac4,#848997);box-shadow:0 35px 70px #0009,inset 0 0 0 2px #c7c7cd;padding:42px 10px 37px;position:relative;flex-shrink:0}
+.phone:before{content:'';width:68px;height:8px;background:#16181d;position:absolute;top:16px;left:50%;transform:translateX(-50%);border-radius:12px;box-shadow:41px 1px 0 -1px #16181d}
+.phone:after{content:'';position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:34px;height:8px;background:#282b32;border-radius:12px}
+.phone.front{position:absolute;top:25px;right:7%;transform:rotate(13deg);z-index:2}
+.phone.back{position:absolute;top:68px;left:7%;transform:rotate(-17deg);background:linear-gradient(150deg,#a5a7b2,#767a85 67%,#afb0b8);padding:0}
+.phone.back:before,.phone.back:after{display:none}
+.camera{position:absolute;top:35px;left:50%;transform:translateX(-50%);width:123px;height:57px;border-radius:28px;background:#232429;border:3px solid #c2c3c9;display:flex;align-items:center;gap:13px;padding:7px 10px}
+.lens{width:35px;height:35px;border-radius:50%;background:radial-gradient(circle at 42% 35%,#315c83 0%,#090d13 38%,#06070a 70%);border:4px solid #111;box-shadow:0 0 0 2px #999}
+.flash{width:12px;height:12px;border-radius:50%;background:#fff4bc;box-shadow:0 0 10px #fff5cf}
+.fruit-mark{font-size:76px;line-height:1;text-align:center;color:#e5e5e7;position:absolute;top:43%;left:50%;transform:translate(-50%,-50%)}
+.fruit-mark span{font:700 32px Oswald,Arial;display:block;margin-top:6px}
+.speaker{position:absolute;bottom:55px;left:50%;transform:translateX(-50%);letter-spacing:3px;color:#2f3034;font-size:16px}
+.screen{height:100%;background:radial-gradient(circle at 15% 85%,#6ed6cf,transparent 52%),linear-gradient(135deg,#756293,#595777 38%,#315b6a 74%,#8abfbb);padding:13px 12px;position:relative;overflow:hidden;border-radius:3px}
+.screen:after{content:'';position:absolute;width:300px;height:290px;left:-175px;bottom:-70px;border:2px solid #ffffff55;border-radius:50%}
+.screen>*{position:relative;z-index:1}
+.status{display:flex;justify-content:space-between;font-size:14px;font-weight:800}
+.reminders{margin-top:31px;background:#242538df;border-radius:12px;padding:14px 12px}
+.reminders b{font-size:15px}
+.reminders p{font-size:11px;margin:3px 0 0}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px 8px;margin-top:35px;justify-items:center}
+.app{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;font-size:21px;box-shadow:0 2px 5px #0004;border:1px solid #ffffff44}
+.app:nth-child(1){background:#12a2b7}.app:nth-child(2){background:#12ac52}.app:nth-child(3){background:#161616}.app:nth-child(4){background:#2522a0}.app:nth-child(5){background:#eee;color:#fa5c39}.app:nth-child(6){background:#f6a51b}.app:nth-child(7){background:#e51c26}.app:nth-child(8){background:#36a9e8}.app:nth-child(9){background:#d255c9}.app:nth-child(10){background:#777}
+.whatup{position:absolute;bottom:13%;left:50%;transform:translateX(-50%);background:#21262abb;border-radius:20px;padding:5px 12px;font-size:12px;white-space:nowrap}
+.section{padding:100px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}
+.section-head>p{max-width:300px;color:var(--muted);margin:0}
+.accent{color:var(--yellow)}
+.product{max-width:980px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);background:#121212;border-radius:14px;overflow:hidden}
+.product-art{min-height:440px;background:radial-gradient(circle at 50% 48%,#3a373f,#151518 60%,#09090b);display:grid;place-items:center;overflow:hidden}
+.product-art .phone{transform:scale(.72)}
+.product-copy{padding:50px;display:flex;flex-direction:column;justify-content:center}
+.product-copy h3{font-size:65px;margin-bottom:10px}
+.meta-line{border-top:1px solid var(--line);margin-top:25px;padding-top:25px}
+.meta-line strong{display:block;font:600 29px Oswald;text-transform:uppercase;margin-top:8px}
+.product-copy .btn{margin-top:28px}
+.release{position:relative;overflow:hidden;background:radial-gradient(ellipse at 70% 38%,#6b4357,transparent 55%),#0b0a0e;padding:110px 0;border-block:1px solid var(--line);text-align:center}
+.release h2{font-size:clamp(82px,12vw,172px)}
+.release p:not(.eyebrow){max-width:520px;margin:24px auto 30px;color:#c6c6cd}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.news-card{border:1px solid var(--line);background:#121212;border-radius:12px;overflow:hidden}
+.news-visual{aspect-ratio:16/9;position:relative;display:grid;place-items:center;overflow:hidden}
+.news-visual.one{background:linear-gradient(140deg,#8e565c,#292039)}
+.news-visual.two{background:linear-gradient(140deg,#777b87,#15161b)}
+.news-visual.three{background:linear-gradient(140deg,#394f78,#4d9891)}
+.news-visual .phone{transform:scale(.37) rotate(-13deg)}
+.news-body{padding:25px}
+.news-body .eyebrow{font-size:10px}
+.news-body h3{font-size:27px;min-height:76px}
+details.news-details summary{display:inline-flex;align-items:center;gap:8px;list-style:none;text-transform:uppercase;font-weight:800;font-size:11px;letter-spacing:.1em}
+details.news-details summary::-webkit-details-marker{display:none}
+details.news-details summary:hover{color:var(--yellow)}
+details.news-details[open] summary{color:var(--yellow);margin-bottom:14px}
+details.news-details p{color:#bbb;font-size:13px}
+.showcase{background:#0b0b0d;border-block:1px solid var(--line)}
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.showcase-copy p:not(.eyebrow){color:#b7b7bd;max-width:450px}
+.showcase-visual{min-height:550px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle,#44404d,#18191c 65%)}
+.showcase-visual .phone{transform:scale(.85)}
+.footer{border-top:1px solid var(--line);padding:75px 0 28px}
+.footer-content{max-width:1680px;margin:auto;padding:0 45px}
+.footer-top,.footer-middle,.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.footer-links{display:flex;gap:25px;flex-wrap:wrap;align-items:center;font-weight:600}
+.footer-top{font-size:15px}
+.footer-middle{margin-top:75px;font-size:13px}
+.footer-bottom{margin-top:90px;color:#b5b5b5;font-size:14px}
+.footer-bottom span:last-child{color:#ddd}
+.footer-social{display:flex;gap:26px;align-items:center}
+.footer-social a{font-size:17px;opacity:.7}
+.footer-social a:hover{opacity:1}
+.footer-note{border-top:1px solid var(--line);padding-top:24px;margin-top:30px;color:#999;font-size:12px;line-height:1.8}
+.lang summary{border:1px solid #555;border-radius:9px;padding:13px 18px;list-style:none;cursor:pointer}
+.lang summary::-webkit-details-marker{display:none}
+.lang summary:hover{border-color:#fff}
+.lang p{background:#181818;border:1px solid var(--line);padding:12px;border-radius:8px;font-size:12px;color:#ccc}
+.mobile-menu{display:none}
+.mobile-menu summary{list-style:none;font-size:24px;padding:10px}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-menu nav{display:flex;position:absolute;right:0;top:100%;left:0;padding:20px 30px;background:#080808;border-top:1px solid var(--line);flex-direction:column;gap:20px;text-transform:uppercase;font-weight:800;font-size:12px;letter-spacing:.1em}
+@media(max-width:1020px){.desktop-nav{gap:16px}.hero-layout{gap:10px}.device-scene{transform:scale(.83);transform-origin:center}.footer-content{padding:0 25px}}
+@media(max-width:760px){.wrap{padding:0 22px}.nav-inner{padding:0 22px}.desktop-nav{display:none}.mobile-menu{display:block}.brand-label{display:none}.nav-inner>.btn{display:none}.hero-layout{grid-template-columns:1fr;min-height:0;padding-top:90px;padding-bottom:30px}.hero{min-height:0}.hero-copy h1{font-size:clamp(76px,15vw,115px)}.device-scene{height:390px;transform:scale(.68);transform-origin:center top;width:100%;margin-bottom:-100px}.section{padding:74px 0}.section-head{display:block}.section-head>p{margin-top:18px}.product{grid-template-columns:1fr}.product-art{min-height:380px}.product-copy{padding:32px}.news-grid{grid-template-columns:1fr}.news-body h3{min-height:0}.showcase-grid{grid-template-columns:1fr;gap:30px}.showcase-visual{min-height:400px}.showcase-visual .phone{transform:scale(.7)}.footer-top,.footer-middle,.footer-bottom{align-items:flex-start;flex-direction:column;gap:25px}.footer-middle,.footer-bottom{margin-top:55px}.footer-content{padding:0 23px}.footer-links{gap:18px}.footer{padding-top:55px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body id="top">
+<header class="topbar"><div class="nav-inner">
+<a class="brand" href="#top" aria-label="iFruit home"><img src="/brand-logo.svg" alt="R star logo"><span class="brand-label">Unofficial iFruit concept</span></a>
+<nav class="desktop-nav"><a href="#top">Home</a><a href="#phone">The phone</a><a href="#design">Details</a><a href="#newswire">Newswire</a><a href="#release">Release</a></nav>
+<a class="btn" href="#release">January 1, 2027 ↗</a>
+<details class="mobile-menu"><summary aria-label="Open navigation">☰</summary><nav><a href="#top">Home</a><a href="#phone">The phone</a><a href="#design">Details</a><a href="#newswire">Newswire</a><a href="#release">Release</a></nav></details>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-layout">
+<div class="hero-copy"><p class="eyebrow">iFruit / January 1, 2027</p><h1>THINK<br>LIVE LOUD.</h1><p class="description">One phone. One world. The iFruit concept is planned for January 1, 2027.</p><div class="hero-actions"><a class="btn" href="#phone">Explore iFruit →</a><a class="btn secondary" href="#release">Release details ↗</a></div></div>
+<div class="device-scene"><div class="device-glow"></div>
+<div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark">●<span>iFruit</span></div><div class="speaker">············</div></div>
+<div class="phone front"><div class="screen"><div class="status"><span>3:03 pm</span><span>☁ 73°</span></div><div class="reminders"><b>✿ Reminders</b><p>8 Notifications</p></div><div class="apps"><span class="app">☏</span><span class="app">☎</span><span class="app">▣</span><span class="app">☷</span><span class="app">◉</span><span class="app">✓</span><span class="app">▤</span><span class="app">☀</span><span class="app">✿</span><span class="app">⚙</span></div><span class="whatup">WhatUp</span></div></div>
+</div></div></section>
+<section id="phone" class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Find your connection</p><h2>MEET iFRUIT<span class="accent">.</span></h2></div><p>One iconic design. One phone concept. Coming January 1, 2027.</p></div>
+<div class="product"><div class="product-art"><div class="phone front"><div class="screen"><div class="status"><span>3:03 pm</span><span>☁ 73°</span></div><div class="reminders"><b>✿ Reminders</b><p>8 Notifications</p></div><div class="apps"><span class="app">☏</span><span class="app">☎</span><span class="app">▣</span><span class="app">☷</span><span class="app">◉</span><span class="app">✓</span><span class="app">▤</span><span class="app">☀</span><span class="app">✿</span><span class="app">⚙</span></div><span class="whatup">WhatUp</span></div></div></div>
+<div class="product-copy"><p class="eyebrow">The icon, reimagined</p><h3>iFRUIT.</h3><p class="muted">The Los Santos essential. A familiar silhouette, refreshed for a new era.</p><div class="meta-line"><small>Planned concept release</small><strong>January 1, 2027</strong></div><a class="btn" href="#design">Explore the design →</a></div></div>
+<p style="text-align:center;color:#999;font-size:12px;margin-top:25px">Concept preview. No orders, payments, or reservations are available.</p></div></section>
+<section id="release" class="release"><div class="wrap"><p class="eyebrow">Coming soon</p><h2>01.01.2027<span class="accent">.</span></h2><p>The iFruit concept is planned for January 1, 2027. This fictional release date is not an official Rockstar Games announcement.</p><a class="btn secondary" href="#newswire">Explore the newswire →</a></div></section>
+<section id="newswire" class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Latest from iFruit</p><h2>NEWSWIRE<span class="accent">.</span></h2></div><p>Explore the design, the concept story, and the fictional iFruit experience.</p></div>
+<div class="news-grid">
+<article class="news-card"><div class="news-visual one"><div class="phone front"><div class="screen"></div></div></div><div class="news-body"><p class="eyebrow">PRODUCT · NOVEMBER 19, 2026</p><h3>A NEW ERA OF CONNECTION IS COMING.</h3><details class="news-details"><summary>Read story ↗</summary><p>Meet iFruit, a single-phone concept inspired by Los Santos. January 1, 2027 is the planned date within this fictional project.</p></details></div></article>
+<article class="news-card"><div class="news-visual two"><div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark">●<span>iFruit</span></div></div></div><div class="news-body"><p class="eyebrow">DESIGN · NOVEMBER 19, 2026</p><h3>EVERY ANGLE. EVERY DETAIL.</h3><details class="news-details"><summary>Read story ↗</summary><p>The graphite-inspired finish and unmistakable silhouette give this concept its visual identity. Images represent a fictional device, not verified hardware.</p></details></div></article>
+<article class="news-card"><div class="news-visual three"><div class="phone front"><div class="screen"></div></div></div><div class="news-body"><p class="eyebrow">EXPERIENCE · NOVEMBER 19, 2026</p><h3>A HOME SCREEN FOR YOUR WORLD.</h3><details class="news-details"><summary>Read story ↗</summary><p>Reminders, messages, and everyday apps define the iFruit home screen. The interface is a creative representation of the game universe.</p></details></div></article>
+</div></div></section>
+<section id="design" class="section showcase"><div class="wrap showcase-grid"><div class="showcase-copy"><p class="eyebrow">Made for your world</p><h2>EVERY DETAIL.<br><span style="-webkit-text-stroke:1px #aaa;color:transparent">ALL IFRUIT.</span></h2><p>Graphite-inspired styling. A familiar home screen. A phone concept built for the streets of Los Santos.</p><a class="btn" href="#release">Release date →</a></div><div class="showcase-visual"><div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark">●<span>iFruit</span></div><div class="speaker">············</div></div></div></div></section>
+</main>
+<footer class="footer"><div class="footer-content">
+<div class="footer-top"><div class="footer-links"><a href="https://www.rockstargames.com/contact" target="_blank" rel="noopener noreferrer">Contact</a><a href="https://www.rockstargames.com/careers" target="_blank" rel="noopener noreferrer">Careers</a><a href="https://support.rockstargames.com/" target="_blank" rel="noopener noreferrer">Community Resources</a><a href="https://www.rockstargames.com/newswire/" target="_blank" rel="noopener noreferrer">Newswire</a></div><details class="lang"><summary>◎ &nbsp; English &nbsp;⌄</summary><p>English is the only language on this concept site.</p></details></div>
+<div class="footer-middle"><div class="footer-links"><a href="https://www.rockstargames.com/privacy" target="_blank" rel="noopener noreferrer">Rockstar Privacy</a><a href="https://www.rockstargames.com/cookies" target="_blank" rel="noopener noreferrer">Rockstar Cookies</a><a href="#release">Release Information</a></div><div class="footer-social"><a title="Rockstar Games Instagram" aria-label="Rockstar Instagram" href="https://www.instagram.com/rockstargames/" target="_blank" rel="noopener noreferrer">◎</a><a title="Rockstar Games YouTube" aria-label="Rockstar YouTube" href="https://www.youtube.com/user/RockstarGames" target="_blank" rel="noopener noreferrer">▶</a><a title="Rockstar Games website" aria-label="Rockstar Games official website" href="https://www.rockstargames.com/" target="_blank" rel="noopener noreferrer">↗</a></div></div>
+<div class="footer-bottom"><span>iFruit Concept</span><span>Los Santos &nbsp; · &nbsp; January 1, 2027</span><span>MMXXVII</span></div><div class="footer-note">Independent, unofficial iFruit fan concept. Not affiliated with, operated by, or endorsed by Rockstar Games or Take-Two Interactive. External links go to Rockstar's official websites; their policies do not apply to this page. This is not a real product offer. No orders or payments are available.</div>
+</div></footer>
+</body></html>
