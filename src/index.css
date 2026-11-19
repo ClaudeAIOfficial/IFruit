@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{font-family:Inter,Helvetica,Arial,sans-serif;color:#fff;background:#000;font-synthesis:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:320px;background:#000}
+::selection{background:#FCAF17;color:#000}
+button,a{-webkit-tap-highlight-color:transparent}
+.glass{background:rgba(0,0,0,.73);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.hero-sky{background:radial-gradient(ellipse at 73% 44%,rgba(241,124,91,.46),transparent 34%),radial-gradient(ellipse at 85% 15%,rgba(132,70,143,.24),transparent 36%),linear-gradient(125deg,#10121a 5%,#252232 51%,#6c3e36 100%)}
+.hero-grid{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:75px 75px;mask-image:linear-gradient(100deg,transparent 10%,black 78%);transform:perspective(500px) rotateX(42deg) scale(1.7)}
+.hero-vignette{background:linear-gradient(180deg,rgba(0,0,0,.10),transparent 26%,rgba(0,0,0,.25) 60%,#000 99%),linear-gradient(90deg,rgba(0,0,0,.59),transparent 90%)}
+.outline-text{-webkit-text-stroke:1px rgba(255,255,255,.45);color:transparent}
+.phone{width:260px;height:517px;position:relative;background:linear-gradient(130deg,#d7d7e1,#8b8b9c 65%,#c4c4d0);border:5px solid #646470;border-radius:41px;box-shadow:inset 0 0 0 2px #b3b3bc,0 25px 65px rgba(0,0,0,.55),18px 24px 65px rgba(0,0,0,.25);padding:34px 10px 38px;flex:none}
+.phone:before{content:'';position:absolute;top:15px;left:50%;transform:translateX(-50%);width:65px;height:8px;border-radius:20px;background:#17191c;box-shadow:37px 1px 0 -1px #181a20}
+.phone:after{content:'';position:absolute;bottom:15px;left:50%;transform:translateX(-50%);width:35px;height:7px;border-radius:12px;background:#2b2b32}
+.screen{height:100%;border-radius:2px;overflow:hidden;background:radial-gradient(ellipse at 15% 91%,#72dcd2 0%,transparent 47%),linear-gradient(140deg,#80569e 0%,#646488 38%,#436b7d 70%,#9bc8b5 100%);padding:14px 13px;position:relative}
+.screen:before{content:'';position:absolute;border:2px solid rgba(255,255,255,.34);width:290px;height:300px;left:-180px;bottom:-40px;border-radius:50%;transform:rotate(-28deg)}
+.appicon{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;box-shadow:0 2px 5px rgba(0,0,0,.25);font-size:20px;border:1px solid rgba(255,255,255,.3)}
+.phone-back{background:linear-gradient(135deg,#b4b4be,#6c717c 55%,#b8b8c0);padding:0}
+.phone-back:before{content:none}.phone-back:after{content:none}
+.phone-back .camera{position:absolute;top:31px;left:50%;transform:translateX(-50%);width:115px;height:53px;background:#212229;border:3px solid #b9bac1;border-radius:28px;display:flex;align-items:center;gap:15px;padding:8px}
+.camera-lens{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 45% 35%,#25486f 0%,#080d15 35%,#070809 70%);border:4px solid #111;box-shadow:0 0 0 2px #777}
+.glow-orb{background:radial-gradient(circle,rgba(252,175,23,.26),transparent 65%);filter:blur(18px)}
+.card-hover:hover img{transform:scale(1.03)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media (max-width:640px){.phone{width:204px;height:405px;border-radius:32px;padding:29px 8px 33px}.phone:before{top:12px;width:52px;height:6px}.phone:after{bottom:11px}.screen{padding:11px 10px}.appicon{width:29px;height:29px;font-size:15px}.phone-back .camera{width:95px;height:45px;top:26px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.fade-up{opacity:1;transform:none}}
