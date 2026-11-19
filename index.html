@@ -50,14 +50,14 @@ small,.muted{color:var(--muted)}
 .phone:before{content:'';width:68px;height:8px;background:#16181d;position:absolute;top:16px;left:50%;transform:translateX(-50%);border-radius:12px;box-shadow:41px 1px 0 -1px #16181d}
 .phone:after{content:'';position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:34px;height:8px;background:#282b32;border-radius:12px}
 .phone.front{position:absolute;top:25px;right:7%;transform:rotate(13deg);z-index:2}
-.phone.back{position:absolute;top:68px;left:7%;transform:rotate(-17deg);background:linear-gradient(150deg,#a5a7b2,#767a85 67%,#afb0b8);padding:0}
+.phone.back{position:absolute;top:68px;left:7%;transform:rotate(-17deg);background:linear-gradient(145deg,#e6e5e9 0%,#babcc6 51%,#efedf1 100%);border-color:#b5b5bf;padding:0}
 .phone.back:before,.phone.back:after{display:none}
-.camera{position:absolute;top:35px;left:50%;transform:translateX(-50%);width:123px;height:57px;border-radius:28px;background:#232429;border:3px solid #c2c3c9;display:flex;align-items:center;gap:13px;padding:7px 10px}
-.lens{width:35px;height:35px;border-radius:50%;background:radial-gradient(circle at 42% 35%,#315c83 0%,#090d13 38%,#06070a 70%);border:4px solid #111;box-shadow:0 0 0 2px #999}
-.flash{width:12px;height:12px;border-radius:50%;background:#fff4bc;box-shadow:0 0 10px #fff5cf}
-.fruit-mark{font-size:76px;line-height:1;text-align:center;color:#e5e5e7;position:absolute;top:43%;left:50%;transform:translate(-50%,-50%)}
+.camera{position:absolute;top:31px;left:29px;width:120px;height:58px;display:flex;align-items:center;gap:23px;padding:0;background:transparent;border:none}
+.lens{width:57px;height:57px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 42% 35%,#315c83 0%,#090d13 38%,#06070a 70%);border:8px solid #171719;box-shadow:0 0 0 3px #a5a5ad,0 0 0 6px #eee}
+.flash{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle,#fffaf1 25%,#ded6ca 64%,#a8a8ae);box-shadow:0 0 0 2px #94969e}
+.fruit-mark{font-size:76px;line-height:1;text-align:center;color:#777a82;position:absolute;top:44%;left:50%;transform:translate(-50%,-50%)}
 .fruit-mark span{font:700 32px Oswald,Arial;display:block;margin-top:6px}
-.speaker{position:absolute;bottom:55px;left:50%;transform:translateX(-50%);letter-spacing:3px;color:#2f3034;font-size:16px}
+.speaker{position:absolute;bottom:55px;left:50%;transform:translateX(-50%);letter-spacing:3px;color:#55575d;font-size:16px}
 .screen{height:100%;background:radial-gradient(circle at 15% 85%,#6ed6cf,transparent 52%),linear-gradient(135deg,#756293,#595777 38%,#315b6a 74%,#8abfbb);padding:13px 12px;position:relative;overflow:hidden;border-radius:3px}
 .screen:after{content:'';position:absolute;width:300px;height:290px;left:-175px;bottom:-70px;border:2px solid #ffffff55;border-radius:50%}
 .screen>*{position:relative;z-index:1}
@@ -150,7 +150,7 @@ details.news-details p{color:#bbb;font-size:13px}
 <section class="hero"><div class="wrap hero-layout">
 <div class="hero-copy"><p class="eyebrow">iFruit / January 1, 2027</p><h1>THINK<br>LIVE LOUD.</h1><p class="description">One phone. One world. The iFruit concept is planned for January 1, 2027.</p><div class="hero-actions"><a class="btn secondary" href="#release">Release details</a></div></div>
 <div class="device-scene"><div class="device-glow"></div>
-<div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark">●<span>iFruit</span></div><div class="speaker">············</div></div>
+<div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark"><svg width="78" height="82" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M33 19c-4-7-2-13 6-17 7-3 13-2 17-2-2 10-9 17-23 19Z"/><path d="M32 20c-8-11-20-8-25-2-7 8-7 21-1 31C14 63 26 65 32 60c6 5 18 3 26-11 6-10 6-23-1-31-5-6-17-9-25 2Z"/></svg><span>iFruit</span></div><div class="speaker">············</div></div>
 <div class="phone front"><div class="screen"><div class="status"><span>3:03 pm</span><span>☁ 73°</span></div><div class="reminders"><b>✿ Reminders</b><p>8 Notifications</p></div><div class="apps"><span class="app">☏</span><span class="app">☎</span><span class="app">▣</span><span class="app">☷</span><span class="app">◉</span><span class="app">✓</span><span class="app">▤</span><span class="app">☀</span><span class="app">✿</span><span class="app">⚙</span></div><span class="whatup">WhatUp</span></div></div>
 </div></div></section>
 <section id="phone" class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Find your connection</p><h2>MEET iFRUIT<span class="accent">.</span></h2></div><p>One iconic design. One phone concept. Coming January 1, 2027.</p></div>
@@ -164,7 +164,7 @@ details.news-details p{color:#bbb;font-size:13px}
 <div class="count-unit"><span class="count-value" id="cd-minutes">00</span><span class="count-label">MINUTES</span></div>
 <div class="count-unit"><span class="count-value" id="cd-seconds">00</span><span class="count-label">SECONDS</span></div>
 </div></div></section>
-<section id="design" class="section showcase"><div class="wrap showcase-grid"><div class="showcase-copy"><p class="eyebrow">Made for your world</p><h2>EVERY DETAIL.<br><span style="-webkit-text-stroke:1px #aaa;color:transparent">ALL IFRUIT.</span></h2><p>Graphite-inspired styling. A familiar home screen. A phone concept built for the streets of Los Santos.</p><a class="btn" href="#release">Release date</a></div><div class="showcase-visual"><div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark">●<span>iFruit</span></div><div class="speaker">············</div></div></div></div></section>
+<section id="design" class="section showcase"><div class="wrap showcase-grid"><div class="showcase-copy"><p class="eyebrow">Made for your world</p><h2>EVERY DETAIL.<br><span style="-webkit-text-stroke:1px #aaa;color:transparent">ALL IFRUIT.</span></h2><p>Graphite-inspired styling. A familiar home screen. A phone concept built for the streets of Los Santos.</p><a class="btn" href="#release">Release date</a></div><div class="showcase-visual"><div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark"><svg width="78" height="82" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M33 19c-4-7-2-13 6-17 7-3 13-2 17-2-2 10-9 17-23 19Z"/><path d="M32 20c-8-11-20-8-25-2-7 8-7 21-1 31C14 63 26 65 32 60c6 5 18 3 26-11 6-10 6-23-1-31-5-6-17-9-25 2Z"/></svg><span>iFruit</span></div><div class="speaker">············</div></div></div></div></section>
 </main>
 
 <script>
