@@ -138,6 +138,18 @@ details.news-details p{color:#bbb;font-size:13px}
 @media(max-width:760px){.release{min-height:290px;padding:78px 0}.countdown{gap:9px}.count-unit{gap:10px}.count-value{font-size:clamp(36px,10vw,70px)}.count-label{font-size:9px;letter-spacing:.06em}}
 @media(max-width:370px){.count-value{font-size:33px}.count-label{font-size:8px}}
 .site-disclaimer{background:transparent;padding:26px 24px 30px;text-align:center;color:#a0a0a0;font-size:11px;line-height:1.7;max-width:1100px;margin:0 auto}
+
+/* Real iFruit Nova X transparent phone renders */
+.nova-hero{isolation:isolate}
+.nova-hero .device-glow{z-index:0;pointer-events:none}
+.nova-hero .nova-image{position:absolute;z-index:1;object-fit:contain;height:auto;filter:drop-shadow(15px 24px 22px rgba(0,0,0,.46))}
+.nova-hero .nova-back{width:49%;max-width:310px;top:7%;left:7%;transform:rotate(-14deg)}
+.nova-hero .nova-front{width:58%;max-width:350px;top:2%;right:2%;transform:rotate(11deg)}
+.product-art.nova-product{background:radial-gradient(circle at 50% 45%,#292832,#16161a 62%,#0c0c0d);min-height:440px;overflow:hidden}
+.nova-product img{display:block;max-width:83%;width:auto;height:390px;object-fit:contain;margin:auto;filter:drop-shadow(10px 20px 17px rgba(0,0,0,.33))}
+@media(max-width:1020px){.nova-hero .nova-image{max-width:none}}
+@media(max-width:760px){.nova-hero.device-scene{transform:none;height:380px;margin-bottom:0}.nova-hero .nova-back{width:44%;top:10%;left:13%}.nova-hero .nova-front{width:50%;top:3%;right:11%}.product-art.nova-product{min-height:365px}.nova-product img{height:340px}}
+@media(max-width:430px){.nova-hero.device-scene{height:320px}.nova-hero .nova-back{left:8%;width:47%}.nova-hero .nova-front{right:7%;width:55%}}
 </style>
 </head>
 <body id="top">
@@ -150,12 +162,13 @@ details.news-details p{color:#bbb;font-size:13px}
 <main>
 <section class="hero"><div class="wrap hero-layout">
 <div class="hero-copy"><h1>THINK<br>LIVE LOUD.</h1><p class="description">One phone. One world. The iFruit Nova X is planned for January 1, 2027.</p></div>
-<div class="device-scene"><div class="device-glow"></div>
-<div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark"><svg width="78" height="82" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M33 19c-4-7-2-13 6-17 7-3 13-2 17-2-2 10-9 17-23 19Z"/><path d="M32 20c-8-11-20-8-25-2-7 8-7 21-1 31C14 63 26 65 32 60c6 5 18 3 26-11 6-10 6-23-1-31-5-6-17-9-25 2Z"/></svg><span>iFruit</span></div><div class="speaker">············</div></div>
-<div class="phone front"><div class="screen"><div class="status"><span>3:03 pm</span><span>☁ 73°</span></div><div class="reminders"><b>✿ Reminders</b><p>8 Notifications</p></div><div class="apps"><span class="app">☏</span><span class="app">☎</span><span class="app">▣</span><span class="app">☷</span><span class="app">◉</span><span class="app">✓</span><span class="app">▤</span><span class="app">☀</span><span class="app">✿</span><span class="app">⚙</span></div><span class="whatup">WhatUp</span></div></div>
+<div class="device-scene nova-hero">
+<div class="device-glow"></div>
+<img class="nova-image nova-back" src="/nova-back.svg" alt="iFruit Nova X rear view" width="350" height="680" decoding="async">
+<img class="nova-image nova-front" src="/nova-front.svg" alt="iFruit Nova X front view" width="420" height="660" decoding="async">
 </div></div></section>
 <section id="phone" class="section"><div class="wrap"><div class="section-head"><div><h2>MEET iFRUIT NOVA X<span class="accent">.</span></h2></div></div>
-<div class="product"><div class="product-art"><div class="phone front"><div class="screen"><div class="status"><span>3:03 pm</span><span>☁ 73°</span></div><div class="reminders"><b>✿ Reminders</b><p>8 Notifications</p></div><div class="apps"><span class="app">☏</span><span class="app">☎</span><span class="app">▣</span><span class="app">☷</span><span class="app">◉</span><span class="app">✓</span><span class="app">▤</span><span class="app">☀</span><span class="app">✿</span><span class="app">⚙</span></div><span class="whatup">WhatUp</span></div></div></div>
+<div class="product"><div class="product-art nova-product"><img src="/nova-front.svg" alt="iFruit Nova X front view" width="420" height="660" loading="lazy" decoding="async"></div>
 <div class="product-copy"><h3>iFRUIT NOVA X.</h3><p class="muted">The Los Santos essential. A familiar silhouette, refreshed for a new era.</p></div></div>
 </div></section>
 <section id="release" class="release" aria-label="Countdown to January 1, 2027">
