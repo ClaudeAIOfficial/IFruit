@@ -127,6 +127,16 @@ details.news-details p{color:#bbb;font-size:13px}
 @media(max-width:1020px){.desktop-nav{gap:16px}.hero-layout{gap:10px}.device-scene{transform:scale(.83);transform-origin:center}.footer-content{padding:0 25px}}
 @media(max-width:760px){.wrap{padding:0 22px}.nav-inner{padding:0 22px}.desktop-nav{display:none}.mobile-menu{display:block}.brand-label{display:none}.nav-inner>.btn{display:none}.hero-layout{grid-template-columns:1fr;min-height:0;padding-top:90px;padding-bottom:30px}.hero{min-height:0}.hero-copy h1{font-size:clamp(76px,15vw,115px)}.device-scene{height:390px;transform:scale(.68);transform-origin:center top;width:100%;margin-bottom:-100px}.section{padding:74px 0}.section-head{display:block}.section-head>p{margin-top:18px}.product{grid-template-columns:1fr}.product-art{min-height:380px}.product-copy{padding:32px}.news-grid{grid-template-columns:1fr}.news-body h3{min-height:0}.showcase-grid{grid-template-columns:1fr;gap:30px}.showcase-visual{min-height:400px}.showcase-visual .phone{transform:scale(.7)}.footer-top,.footer-middle,.footer-bottom{align-items:flex-start;flex-direction:column;gap:25px}.footer-middle,.footer-bottom{margin-top:55px}.footer-content{padding:0 23px}.footer-links{gap:18px}.footer{padding-top:55px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Live countdown, no surrounding copy */
+.release{padding:110px 0;min-height:470px;display:flex;align-items:center;justify-content:center}
+.release .wrap{width:100%}
+.countdown{display:flex;justify-content:center;align-items:center;gap:clamp(12px,2.7vw,46px);width:100%;font-variant-numeric:tabular-nums}
+.count-unit{min-width:0;display:flex;flex-direction:column;align-items:center;gap:17px;flex:0 1 230px}
+.count-value{font-family:Oswald,Impact,"Arial Narrow",sans-serif;font-weight:700;letter-spacing:-.055em;line-height:1;white-space:nowrap;font-size:clamp(45px,8.3vw,134px);color:#fff}
+.count-label{font:800 clamp(9px,.85vw,13px) Inter,Arial,sans-serif;letter-spacing:.18em;color:#fcaf17}
+@media(max-width:760px){.release{min-height:290px;padding:78px 0}.countdown{gap:9px}.count-unit{gap:10px}.count-value{font-size:clamp(36px,10vw,70px)}.count-label{font-size:9px;letter-spacing:.06em}}
+@media(max-width:370px){.count-value{font-size:33px}.count-label{font-size:8px}}
 </style>
 </head>
 <body id="top">
@@ -147,7 +157,13 @@ details.news-details p{color:#bbb;font-size:13px}
 <div class="product"><div class="product-art"><div class="phone front"><div class="screen"><div class="status"><span>3:03 pm</span><span>☁ 73°</span></div><div class="reminders"><b>✿ Reminders</b><p>8 Notifications</p></div><div class="apps"><span class="app">☏</span><span class="app">☎</span><span class="app">▣</span><span class="app">☷</span><span class="app">◉</span><span class="app">✓</span><span class="app">▤</span><span class="app">☀</span><span class="app">✿</span><span class="app">⚙</span></div><span class="whatup">WhatUp</span></div></div></div>
 <div class="product-copy"><p class="eyebrow">The icon, reimagined</p><h3>iFRUIT.</h3><p class="muted">The Los Santos essential. A familiar silhouette, refreshed for a new era.</p><div class="meta-line"><small>Planned concept release</small><strong>January 1, 2027</strong></div></div></div>
 <p style="text-align:center;color:#999;font-size:12px;margin-top:25px">Concept preview. No orders, payments, or reservations are available.</p></div></section>
-<section id="release" class="release"><div class="wrap"><p class="eyebrow">Coming soon</p><h2>01.01.2027<span class="accent">.</span></h2><p>The iFruit concept is planned for January 1, 2027. This fictional release date is not an official Rockstar Games announcement.</p></div></section>
+<section id="release" class="release" aria-label="Countdown to January 1, 2027">
+<div class="wrap"><div class="countdown" role="timer" aria-label="Time remaining until January 1, 2027">
+<div class="count-unit"><span class="count-value" id="cd-days">42</span><span class="count-label">DAYS</span></div>
+<div class="count-unit"><span class="count-value" id="cd-hours">00</span><span class="count-label">HOURS</span></div>
+<div class="count-unit"><span class="count-value" id="cd-minutes">00</span><span class="count-label">MINUTES</span></div>
+<div class="count-unit"><span class="count-value" id="cd-seconds">00</span><span class="count-label">SECONDS</span></div>
+</div></div></section>
 <section id="design" class="section showcase"><div class="wrap showcase-grid"><div class="showcase-copy"><p class="eyebrow">Made for your world</p><h2>EVERY DETAIL.<br><span style="-webkit-text-stroke:1px #aaa;color:transparent">ALL IFRUIT.</span></h2><p>Graphite-inspired styling. A familiar home screen. A phone concept built for the streets of Los Santos.</p><a class="btn" href="#release">Release date</a></div><div class="showcase-visual"><div class="phone back"><div class="camera"><span class="lens"></span><span class="flash"></span></div><div class="fruit-mark">●<span>iFruit</span></div><div class="speaker">············</div></div></div></div></section>
 </main>
 <footer class="footer"><div class="footer-content">
@@ -155,4 +171,21 @@ details.news-details p{color:#bbb;font-size:13px}
 <div class="footer-middle"><div class="footer-links"><a href="https://www.rockstargames.com/privacy" target="_blank" rel="noopener noreferrer">Rockstar Privacy</a><a href="https://www.rockstargames.com/cookies" target="_blank" rel="noopener noreferrer">Rockstar Cookies</a><a href="#release">Release Information</a></div><div class="footer-social"><a title="Rockstar Games Instagram" aria-label="Rockstar Instagram" href="https://www.instagram.com/rockstargames/" target="_blank" rel="noopener noreferrer">◎</a><a title="Rockstar Games YouTube" aria-label="Rockstar YouTube" href="https://www.youtube.com/user/RockstarGames" target="_blank" rel="noopener noreferrer">▶</a><a title="Rockstar Games website" aria-label="Rockstar Games official website" href="https://www.rockstargames.com/" target="_blank" rel="noopener noreferrer">Rockstar Games</a></div></div>
 <div class="footer-bottom"><span>iFruit Concept</span><span>Los Santos &nbsp; · &nbsp; January 1, 2027</span><span>MMXXVII</span></div><div class="footer-note">Independent, unofficial iFruit fan concept. Not affiliated with, operated by, or endorsed by Rockstar Games or Take-Two Interactive. External links go to Rockstar's official websites; their policies do not apply to this page. This is not a real product offer. No orders or payments are available.</div>
 </div></footer>
-</body></html>
+<script>
+(function(){
+  var deadline=Date.parse("2027-01-01T00:00:00+01:00");
+  var fields=[
+    document.getElementById("cd-days"),
+    document.getElementById("cd-hours"),
+    document.getElementById("cd-minutes"),
+    document.getElementById("cd-seconds")
+  ];
+  function tick(){
+    var total=Math.max(0,Math.floor((deadline-Date.now())/1000));
+    var values=[Math.floor(total/86400),Math.floor(total%86400/3600),Math.floor(total%3600/60),total%60];
+    for(var i=0;i<4;i++)if(fields[i])fields[i].textContent=i===0?String(values[i]):String(values[i]).padStart(2,"0");
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+</script></body></html>
