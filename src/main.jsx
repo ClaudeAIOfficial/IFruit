@@ -88,7 +88,6 @@ return <div id="top" className="min-h-screen bg-black text-white font-body">
 <span>MMXXVII</span>
 </div>
 <div className="border-t border-white/10 mt-8 pt-6 text-xs text-muted leading-relaxed">
-This is an independent, unofficial iFruit fan concept. Not affiliated with, operated by, or endorsed by Rockstar Games or Take-Two Interactive. External links open their official websites; their policies do not govern this concept site. The release date is fictional. No orders or payments are accepted.
 </div>
 </div></footer>
 {article!==null&&<div role="dialog" aria-modal="true" aria-label="Newswire article" className="fixed inset-0 z-[80] bg-black/85 flex items-center justify-center p-5" onClick={close}><article onClick={e=>e.stopPropagation()} className="bg-panel border border-white/20 rounded-xl p-7 sm:p-10 w-full max-w-2xl relative"><button aria-label="Close article" className="absolute right-5 top-5" onClick={close}><X size={22}/></button><p className="text-amber uppercase font-bold tracking-[.2em] text-xs">{stories[article].category} · {stories[article].date}</p><h2 className="font-display font-semibold uppercase text-3xl sm:text-5xl leading-tight mt-5">{stories[article].title}</h2><p className="text-muted mt-6 leading-relaxed">{stories[article].body}</p><a href="#launch" onClick={close} className="inline-flex mt-8 bg-amber text-black uppercase text-xs font-bold px-5 py-3 rounded">Release details <ArrowRight size={16} className="ml-2"/></a></article></div>}
